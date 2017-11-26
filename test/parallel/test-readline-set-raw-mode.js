@@ -22,7 +22,7 @@
 'use strict';
 require('../common');
 const assert = require('assert');
-const readline = require('readline');
+const readline = require('readline.js');
 const Stream = require('stream');
 
 const stream = new Stream();

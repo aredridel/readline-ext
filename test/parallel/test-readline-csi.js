@@ -3,7 +3,7 @@
 
 const common = require('../common');
 const assert = require('assert');
-const readline = require('readline');
+const readline = require('readline.js');
 const { Writable } = require('stream');
 const { CSI } = require('internal/readline');
 

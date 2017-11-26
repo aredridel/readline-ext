@@ -3,7 +3,7 @@ const common = require('../common');
 const PassThrough = require('stream').PassThrough;
 const assert = require('assert');
 const inherits = require('util').inherits;
-const Interface = require('readline').Interface;
+const Interface = require('readline.js').Interface;
 
 
 function FakeInput() {

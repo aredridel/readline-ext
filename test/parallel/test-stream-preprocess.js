@@ -3,7 +3,7 @@ const common = require('../common');
 const assert = require('assert');
 
 const fs = require('fs');
-const rl = require('readline');
+const rl = require('readline.js');
 const fixtures = require('../common/fixtures');
 
 const BOM = '\uFEFF';

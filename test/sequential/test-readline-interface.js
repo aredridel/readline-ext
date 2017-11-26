@@ -30,7 +30,7 @@ const common = require('../common');
 //   tools/test.py -j 96 --repeat 192 test/parallel/test-readline-interface.js
 
 const assert = require('assert');
-const readline = require('readline');
+const readline = require('readline.js');
 const EventEmitter = require('events').EventEmitter;
 const inherits = require('util').inherits;
 

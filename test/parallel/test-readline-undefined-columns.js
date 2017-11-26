@@ -3,7 +3,7 @@
 const common = require('../common');
 const assert = require('assert');
 const PassThrough = require('stream').PassThrough;
-const readline = require('readline');
+const readline = require('readline.js');
 
 // Checks that tab completion still works
 // when output column size is undefined

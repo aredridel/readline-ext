@@ -5,7 +5,7 @@
 
 require('../common');
 const assert = require('assert');
-const readline = require('readline');
+const readline = require('readline.js');
 const PassThrough = require('stream').PassThrough;
 const stream = new PassThrough();
 const sequence = [];

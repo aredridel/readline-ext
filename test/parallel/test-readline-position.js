@@ -1,7 +1,7 @@
 'use strict';
 require('../common');
 const { PassThrough } = require('stream');
-const readline = require('readline');
+const readline = require('readline.js');
 const assert = require('assert');
 
 const ctrlU = { ctrl: true, name: 'u' };

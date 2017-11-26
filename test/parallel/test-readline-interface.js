@@ -24,7 +24,7 @@
 const common = require('../common');
 
 const assert = require('assert');
-const readline = require('readline');
+const readline = require('readline.js');
 const internalReadline = require('internal/readline');
 const EventEmitter = require('events').EventEmitter;
 const inherits = require('util').inherits;

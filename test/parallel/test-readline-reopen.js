@@ -5,7 +5,7 @@
 
 const common = require('../common');
 const assert = require('assert');
-const readline = require('readline');
+const readline = require('readline.js');
 const { PassThrough } = require('stream');
 
 const input = new PassThrough();
