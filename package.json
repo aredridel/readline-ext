@@ -1,0 +1,22 @@
+{
+  "name": "readline-ext",
+  "version": "1.0.0",
+  "main": "readline.js",
+  "scripts": {
+    "test": "set -e; for I in test/{parallel,sequential}/*.js ; do NODE_PATH=. node $I; done"
+  },
+  "author": "",
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aredridel/readline-ext.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aredridel/readline-ext/issues"
+  },
+  "homepage": "https://github.com/aredridel/readline-ext#readme",
+  "description": ""
+}
