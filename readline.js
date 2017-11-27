@@ -27,7 +27,7 @@
 
 'use strict';
 
-const errors = require('internal/errors');
+const errors = require('./internal/errors');
 const { debuglog, inherits } = require('util');
 const { Buffer } = require('buffer');
 const EventEmitter = require('events');
@@ -38,7 +38,7 @@ const {
   getStringWidth,
   isFullWidthCodePoint,
   stripVTControlCharacters
-} = require('internal/readline');
+} = require('./internal/readline');
 
 const {
   kEscape,
