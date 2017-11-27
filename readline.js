@@ -28,7 +28,7 @@
 'use strict';
 
 const errors = require('internal/errors');
-const { debug, inherits } = require('util');
+const { debuglog, inherits } = require('util');
 const { Buffer } = require('buffer');
 const EventEmitter = require('events');
 const { StringDecoder } = require('string_decoder');
@@ -60,6 +60,8 @@ const ESCAPE_DECODER = Symbol('escape-decoder');
 
 // GNU readline library - keyseq-timeout is 500ms (default)
 const ESCAPE_CODE_TIMEOUT = 500;
+
+const debug = debuglog('readline');
 
 function createInterface(input, output, completer, terminal) {
   return new Interface(input, output, completer, terminal);
