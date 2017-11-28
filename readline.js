@@ -463,6 +463,16 @@ Interface.prototype._insertString = function(c) {
   }
 };
 
+Interface.prototype._replaceBefore = function(c, length) {
+  var beg = this.line.slice(0, this.cursor - length);
+  var end = this.line.slice(this.cursor, this.line.length);
+  this.line = beg + c + end;
+  this.cursor += c.length;
+  this._refreshLine();
+  // a hack to get the line refreshed if it's needed
+  this._moveCursor(0);
+};
+
 Interface.prototype._tabComplete = function(lastKeypressWasTab) {
   var self = this;
 
@@ -475,8 +485,9 @@ Interface.prototype._tabComplete = function(lastKeypressWasTab) {
       return;
     }
 
-    const completions = rv[0];
-    const completeOn = rv[1];  // the text that was completed
+    const completions = rv.completions || rv[0];
+    const completeOn = rv.completeOn || rv[1] || self.line.slice(0, self.cursor);  // the text that was completed
+    const replace = rv.replace;
     if (completions && completions.length) {
       // Apply/show completions.
       if (lastKeypressWasTab) {
@@ -507,7 +518,11 @@ Interface.prototype._tabComplete = function(lastKeypressWasTab) {
       });
       var prefix = commonPrefix(f);
       if (prefix.length > completeOn.length) {
-        self._insertString(prefix.slice(completeOn.length));
+        if (replace) {
+          self._replaceBefore(prefix, completeOn.length);
+        } else {
+          self._insertString(prefix.slice(completeOn.length));
+        }
       }
 
       self._refreshLine();
