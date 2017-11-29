@@ -1,6 +1,6 @@
 {
   "name": "readline-ext",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "readline.js",
   "scripts": {
     "test": "set -e; for I in test/{parallel,sequential}/*.js ; do NODE_PATH=. node $I; done"
