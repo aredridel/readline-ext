@@ -492,7 +492,7 @@ Interface.prototype._tabComplete = function(lastKeypressWasTab) {
       // Apply/show completions.
       if (lastKeypressWasTab) {
         self._writeToOutput('\r\n');
-        var width = completions.reduce(function completionReducer(a, b) {
+        var width = completions.map(completionDescription).reduce(function completionReducer(a, b) {
           return a.length > b.length ? a : b;
         }).length + 2;  // 2 space padding
         var maxColumns = Math.floor(self.columns / width);
@@ -501,7 +501,7 @@ Interface.prototype._tabComplete = function(lastKeypressWasTab) {
         }
         var group = [];
         for (var i = 0; i < completions.length; i++) {
-          var c = completions[i];
+          var c = completionDescription(completions[i]);
           if (c === '') {
             handleGroup(self, group, width, maxColumns);
             group = [];
@@ -513,7 +513,7 @@ Interface.prototype._tabComplete = function(lastKeypressWasTab) {
       }
 
       // If there is a common prefix to all matches, then apply that portion.
-      var f = completions.filter(function completionFilter(e) {
+      var f = completions.map(completionText).filter(function completionFilter(e) {
         if (e) return e;
       });
       var prefix = commonPrefix(f);
@@ -1149,6 +1149,20 @@ function clearScreenDown(stream) {
     return;
 
   stream.write(kClearScreenDown);
+}
+
+/**
+ * gets the text of the completion shown on double tab
+ */
+function completionDescription(c) {
+  return c.description || completionText(c);
+}
+
+/**
+ * gets the text to actually complete with
+ */
+function completionText(c) {
+  return c.text || c;
 }
 
 module.exports = {
